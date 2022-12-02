@@ -12,7 +12,7 @@
                         <div class="single-products">
                             <div class="productinfo text-center">
                                 <img src="{{ URL::to('public/uploads/product/' . $product->product_image) }}" alt="" />
-                                <h2>{{ $product->product_price .
+                                <h2>{{ number_format($product->product_price) .
                                     '
                                 ' .
                                     'VNĐ' }}</h2>
