@@ -5,7 +5,7 @@
            <div class="card-body">
            <div class="card-title">Thêm Danh Mục</div>
            <hr>
-            <form role="form" action="{{URL::to('/save-category-product')}}" method="post">
+            <form role="form" action="{{URL::to('/admin/save-category-product')}}" method="post">
               {{ csrf_field() }} 
            <div class="form-group">
             <label for="exampleInputEmail1">Tên Danh Mục</label>

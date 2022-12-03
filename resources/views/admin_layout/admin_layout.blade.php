@@ -52,13 +52,22 @@
                         <i class="zmdi zmdi-view-dashboard"></i> <span>Dashboard</span>
                     </a>
                 </li>
+                <li class="sub-menu">
+                    <a href="javascript:;">
+                    <i class="fa fa-book"></i>
+                    <span>Đơn hàng</span>
+                    </a>
+                    <ul class="sub">
+                    <li><a href="{{URL::to('/manage-order')}}">Quản lý đơn hàng</a></li>
+                    </ul>
+                    </li>
                 <li>
                     <a href="#">
                         <i class="zmdi zmdi-view-module"></i> <span>Danh Mục Sản Phẩm</span>
                     </a>
                     <ul>
-                        <li><a href="{{ URL::to('/add-category-product') }}">Thêm danh mục sản phẩm</a></li>
-                        <li><a href="{{ URL::to('/all-category-product') }}">Liệt kê danh mục sản phẩm</a></li>
+                        <li><a href="{{ URL::to('admin/add-category-product') }}">Thêm danh mục sản phẩm</a></li>
+                        <li><a href="{{ URL::to('admin/all-category-product') }}">Liệt kê danh mục sản phẩm</a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">
@@ -67,8 +76,8 @@
                         <span>Thương hiệu sản phẩm</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="{{ URL::to('/add-brand-product') }}">Thêm thương hiệu sản phẩm</a></li>
-                        <li><a href="{{ URL::to('/all-brand-product') }}">Liệt kê thương hiệu sản phẩm</a></li>
+                        <li><a href="{{ URL::to('admin/add-brand-product') }}">Thêm thương hiệu sản phẩm</a></li>
+                        <li><a href="{{ URL::to('admin/all-brand-product') }}">Liệt kê thương hiệu sản phẩm</a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">
@@ -77,8 +86,8 @@
                         <span>Sản phẩm</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="{{ URL::to('/add-product') }}">Thêm sản phẩm</a></li>
-                        <li><a href="{{ URL::to('/all-product') }}">Liệt kê sản phẩm</a></li>
+                        <li><a href="{{ URL::to('admin/add-product') }}">Thêm sản phẩm</a></li>
+                        <li><a href="{{ URL::to('admin/all-product') }}">Liệt kê sản phẩm</a></li>
                     </ul>
                 </li>
 

@@ -33,12 +33,13 @@
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Mô tả danh
                                         mục</label><br>
-                                    <textarea style="width: 100%; resize: none;  color:#fff; text-align: center; background:rgba(255, 255, 255, 0.2);" rows="8" class="formcontrol form-control-rounded" name="brand_product_desc" id="exampleInputPassword1">{{ $edit_value->brand_desc }}</textarea>
+                                    <textarea style="width: 100%; resize: none;  color:#fff; text-align: center; background:rgba(255, 255, 255, 0.2);"
+                                        rows="8" class="formcontrol form-control-rounded" name="brand_product_desc" id="exampleInputPassword1">{{ $edit_value->brand_desc }}</textarea>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputPassword1">Hiển thị</label>
-                                    <select name="brand_product_status" class="form-control form-control-rounded
-    input-sm m-bot15">
+                                    <select name="brand_product_status"
+                                        class="form-control form-control-rounded input-sm m-bot15">
                                         @if ($edit_value->brand_status == 1)
                                             <option selected value="1">Hiển thị</option>
                                             <option value="0">Ẩn</option>
@@ -48,12 +49,13 @@
                                         @endif
                                     </select>
                                 </div>
-                                <button type="submit" name="update_brand_product" class="btn btn-light btn-round">Cập nhật thương
+                                <button type="submit" name="update_brand_product" class="btn btn-light btn-round">Cập nhật
+                                    thương
                                     hiệu</button>
                             </form>
                         </div>
                     @endforeach
                 </div>
-            </section>
-        </div>
-    @endsection
+                </section>
+            </div>
+        @endsection
