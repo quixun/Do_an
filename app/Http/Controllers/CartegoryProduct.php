@@ -16,15 +16,15 @@ class CartegoryProduct extends Controller
     public function add_category_product()
     {
         $this->AuthLogin();
-        return view('admin.cartegory.add_category_product');
+        return view('admin.category.add_category_product');
     }
 
     public function all_category_product()
     {
         $this->AuthLogin();
         $all_category_product = Category::orderBy('category_id', 'DESC')->get();
-        $manager_category_product = view('admin.cartegory.all_category_product')->with('all_category_product', $all_category_product);
-        return view('admin_layout.admin_layout')->with('admin.cartegory.all_category_product', $manager_category_product);
+        $manager_category_product = view('admin.category.all_category_product')->with('all_category_product', $all_category_product);
+        return view('admin_layout.admin_layout')->with('admin.category.all_category_product', $manager_category_product);
     }
     public function save_category_product(Request $request)
     {

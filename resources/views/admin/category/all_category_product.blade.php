@@ -5,6 +5,7 @@
             <div class="panel-heading">
                 Liệt kê danh mục sản phẩm
             </div>
+            <hr>
             <div class="row w3-res-tb">
             </div>
             <div class="table-responsive">

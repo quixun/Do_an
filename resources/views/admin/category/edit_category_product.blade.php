@@ -45,7 +45,7 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <button type="submit" name="update_category_product" class="btn btn-light btn-round">Thêm Danh
+                                    <button type="submit" name="update_category_product" class="btn btn-light btn-round">Cập Nhật Danh
                                         Mục</button>
                                 </div>
                             </form>
