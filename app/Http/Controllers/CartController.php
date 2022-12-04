@@ -20,9 +20,9 @@ class CartController extends Controller
         // Cart::add('293ad', 'Product 1', 1, 9.99, 550);
         // Cart::destroy();
         $data['id'] = $product_info->product_id;
-        $data['qty'] = $quantity;
+        $data['qty'] = intval($quantity);
         $data['name'] = $product_info->product_name;
-        $data['price'] = $product_info->product_price;
+        $data['price'] = floatval($product_info->product_price);
         $data['weight'] = 1;
         $data['options']['image'] = $product_info->product_image;
         Cart::add($data);

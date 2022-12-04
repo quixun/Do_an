@@ -8,6 +8,8 @@ use App\Http\Requests;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
+//use Illuminate\Pagination\Paginator;
+use Illuminate\Database\Eloquent\Collection;
 
 session_start();
 class BrandController extends Controller

@@ -20,9 +20,9 @@
                                 <button type="button" class="btn btn-default get">Get it now</button>
                             </div>
                             <div class="col-sm-6">
-                                <img src="{{ '../frontend/images/girl1.jpg' }}" class="girl img-responsive"
+                                <img src="{{ 'frontend/images/girl1.jpg' }}" class="girl img-responsive"
                                     alt="" />
-                                <img src="{{ '../frontend/images/pricing.png' }}" class="pricing" alt="" />
+                                <img src="{{ 'frontend/images/pricing.png' }}" class="pricing" alt="" />
                             </div>
                         </div>
                         <div class="item">
@@ -34,9 +34,9 @@
                                 <button type="button" class="btn btn-default get">Get it now</button>
                             </div>
                             <div class="col-sm-6">
-                                <img src="{{ '../frontend/images/girl2.jpg' }}" class="girl img-responsive"
+                                <img src="{{ 'frontend/images/girl2.jpg' }}" class="girl img-responsive"
                                     alt="" />
-                                <img src="{{ '../frontend/images/pricing.png' }}" class="pricing" alt="" />
+                                <img src="{{ 'frontend/images/pricing.png' }}" class="pricing" alt="" />
                             </div>
                         </div>
 
@@ -49,9 +49,9 @@
                                 <button type="button" class="btn btn-default get">Get it now</button>
                             </div>
                             <div class="col-sm-6">
-                                <img src="{{ '../frontend/images/girl3.jpg' }}" class="girl img-responsive"
+                                <img src="{{ 'frontend/images/girl3.jpg' }}" class="girl img-responsive"
                                     alt="" />
-                                <img src="{{ '../frontend/images/pricing.png' }}" class="pricing" alt="" />
+                                <img src="{{ 'frontend/images/pricing.png' }}" class="pricing" alt="" />
                             </div>
                         </div>
 

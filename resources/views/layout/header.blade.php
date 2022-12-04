@@ -66,7 +66,8 @@
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="logo pull-left">
-                            <a href="index.html"><img src="{{ 'frontend/images/logo.png' }}" alt="" /></a>
+                            <a href="{{ URL::to('/trang-chu') }}" class="active"><img
+                                    src="{{ 'frontend/images/logo.png' }}" alt="" /></a>
                         </div>
                         <div class="btn-group pull-right">
                             <div class="btn-group">
@@ -94,40 +95,52 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-8 container">
-                        <li><a href="#"><i class="fa fa-star"></i> Yêu thích</a></li>
-                        <?php
-                            $customer_id = Session::get('customer_id');
-                            $shipping_id = Session::get('shipping_id');
-                            if($customer_id!=NULL && $shipping_id==NULL){
-                        ?>
-                        <li><a href="{{ URL::to('/checkout') }}"><i class="fa facrosshairs"></i> Thanh toán</a></li>
-                        <?php
-                            }elseif($customer_id!=NULL && $shipping_id!=NULL){
-                        ?>
-                        <li><a href="{{ URL::to('/payment') }}"><i class="fa facrosshairs"></i> Thanh toán</a></li>
-                        <?php
-                            }else{
-                        ?>
-                        <li><a href="{{ URL::to('/login-checkout') }}"><i class="fa fa-crosshairs"></i> Thanh toán</a>
-                        </li>
-                        <?php
-                            }
-                        ?>
-                        <li><a href="{{ URL::to('/show-cart') }}"><i class="fa fashopping-cart"></i> Giỏ hàng</a></li>
-                        <?php
-                            $customer_id = Session::get('customer_id');
-                            if($customer_id!=NULL){
-                        ?>
-                        <li><a href="{{ URL::to('/logout-checkout') }}"><i class="fa fa-lock"></i> Đăng xuất</a></li>
-                        <?php
-                            }else{
-                        ?>
-                        <li><a href="{{URL::to('/taikhoan')}}"><i class="fa falock"></i>Thông tin của {{ Session::get('customer_name') }} </a></li>
-                        <li><a href="{{ URL::to('/login-checkout') }}"><i class="fa fa-lock"></i> Đăng nhập</a></li>
-                        <?php
-                            }
-                        ?>
+                    <div class="col-sm-8">
+                        <div class="shop-menu pull-right">
+                            <ul class="nav navbar-nav">
+                                <li class="nav-item"><a href="#"><i class="fa fa-star"></i> Yêu thích</a></li>
+                                <?php
+                                    $customer_id = Session::get('customer_id');
+                                    $shipping_id = Session::get('shipping_id');
+                                    if($customer_id!=NULL && $shipping_id==NULL){
+                                ?>
+                                <li class="nav-item"><a href="{{ URL::to('/checkout') }}"><i
+                                            class="fa facrosshairs"></i> Thanh toán</a></li>
+                                <?php
+                                    }elseif($customer_id!=NULL && $shipping_id!=NULL){
+                                ?>
+                                <li class="nav-item"><a href="{{ URL::to('/payment') }}"><i
+                                            class="fa facrosshairs"></i> Thanh toán</a></li>
+                                <?php
+                                    }else{
+                                ?>
+                                <li class="nav-item"><a href="{{ URL::to('/login-checkout') }}"><i
+                                            class="fa fa-crosshairs"></i> Thanh toán</a>
+                                </li>
+                                <?php
+                                    }
+                                ?>
+                                <li class="nav-item"><a href="{{ URL::to('/show-cart') }}"><i
+                                            class="fa fashopping-cart"></i> Giỏ hàng</a></li>
+                                <?php
+                                    $customer_id = Session::get('customer_id');
+                                    if($customer_id!=NULL){
+                                ?>
+                                <li class="nav-item"><a href="{{ URL::to('/logout-checkout') }}"><i
+                                            class="fa fa-lock"></i> Đăng xuất</a></li>
+                                <?php
+                                    }else{
+                                ?>
+                                <li class="nav-item"><a href="{{ URL::to('/taikhoan') }}"><i
+                                            class="fa falock"></i>Thông tin của {{ Session::get('customer_name') }}
+                                    </a></li>
+                                <li class="nav-item"><a href="{{ URL::to('/login-checkout') }}"><i
+                                            class="fa fa-lock"></i> Đăng nhập</a></li>
+                                <?php
+                                    }
+                                ?>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -176,16 +189,15 @@
                             <input type="text" placeholder="Search" />
                         </div>
                     </div> --}}
-                    <div class="col-sm-4">
-                        <form action="{{URL::to('/tim-kiem')}}" method="POST">{{csrf_field()}}
+                    <div class="col-sm-3">
                         <div class="search_box pull-right">
-                        <input type="text" name="keywords_submit" placeholder="Tìm
-                        kiếm sản phẩm"/>
-                        <input type="submit" style="margin-top:0;color:#666"
-                        name="search_items" class="btn btn-primary btn-sm" value="Tìm kiếm">
+                            <form action="{{ URL::to('/tim-kiem') }}" method="POST">{{ csrf_field() }}
+                                <input type="text" name="keywords_submit"
+                                    placeholder="Tìm kiếm sản phẩm" />
+                                <input type="submit" name="search_items" class="btn btn-primary btn-sm" value="Tìm kiếm">
                         </div>
                         </form>
-                        </div>
+                    </div>
                 </div>
             </div>
         </div>

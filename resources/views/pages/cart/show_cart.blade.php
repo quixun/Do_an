@@ -4,7 +4,7 @@
         <div class="container">
             <div class="breadcrumbs">
                 <ol class="breadcrumb">
-                    <li><a href="{{ URL::to('/') }}">Trang chủ</a></li>
+                    <li><a href="{{ URL::to('/') }}">Home</a></li>
                     <li class="active">Giỏ hàng của bạn</li>
                 </ol>
             </div>
@@ -20,6 +20,7 @@
                             <td class="price">Giá</td>
                             <td class="quantity">Số lượng</td>
                             <td class="total">Tổng</td>
+                            <td>Tùy Chỉnh</td>
                             <td></td>
                         </tr>
                     </thead>
@@ -33,10 +34,10 @@
                                 </td>
                                 <td class="cart_description">
                                     <h4><a href="">{{ $v_content->name }}</a></h4>
-                                    <p>Web ID: 1089772</p>
+                                    <p>Web ID: {{ rand(10000,1000000) }}</p>
                                 </td>
                                 <td class="cart_price">
-                                    <p>{{ number_format($v_content->price) . ' ' . 'vnđ' }}</p>
+                                    <p>{{ number_format($v_content->price) . ' ' . '$' }}</p>
                                 </td>
                                 <td class="cart_quantity">
                                     <div class="cart_quantity_button">
@@ -55,14 +56,14 @@
                                     <p class="cart_total_price">
                                         <?php
                                         $subtotal = $v_content->price * $v_content->qty;
-                                        echo number_format($subtotal) . ' ' . 'vnđ';
+                                        echo number_format($subtotal) . ' ' . '$';
                                         ?>
                                     </p>
                                 </td>
                                 <td class="cart_delete">
                                     <a class="cart_quantity_delete"
                                         href="{{ URL::to('/delete-to-cart/' . $v_content->rowId) }}"><i
-                                            class="fa fatimes"></i></a>
+                                            class="fa fatimes"></i>Xóa</a>
                                 </td>
                             </tr>
                         @endforeach
@@ -81,18 +82,18 @@
                             <li>Tổng <span>{{ Cart::total() .
                                 '
                             ' .
-                                'vnđ' }}</span></li>
+                                '$' }}</span></li>
                             <li>Thuế <span>{{ Cart::tax() .
                                 '
                             ' .
-                                'vnđ' }}</span></li>
+                                '$' }}</span></li>
                             <li>Phí vận chuyển
                                 <span>Free</span>
                             </li>
                             <li>Thành tiền <span>{{ Cart::total() .
                                 '
                             ' .
-                                'vnđ' }}</span></li>
+                                '$' }}</span></li>
                         </ul>
                         {{-- <a class="btn btn-default update"
 href="">Update</a> --}}
@@ -104,7 +105,7 @@ if($customer_id!=NULL){
                         <?php
 }else{
 ?>
-                        <a class="btn btn-default check_out" href="{{ URL::to('/logincheckout') }}">Thanh toán</a>
+                        <a class="btn btn-default check_out" href="{{ URL::to('/login-checkout') }}">Thanh toán</a>
                         <?php
 }
 ?>

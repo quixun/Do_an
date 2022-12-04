@@ -120,12 +120,13 @@ class ProductController extends Controller
         Session::put('message', 'Xóa sản phẩm thành công');
         return Redirect::to('/admin/all-product');
     }
-    public function details_product($product_slug , Request $request){
+    public function details_product($product_id , Request $request){
         $cate_product = DB::table('tbl_category_product')->where('category_status','1')->orderby('category_id','desc')->get();
         $brand_product = DB::table('tbl_brand')->where('brand_status','1')->orderby('brand_id','desc')->get();
-        $details_product = DB::table('tbl_product')->join('tbl_category_product','tbl_category_product.category_id','=','tbl_product.category_id')->join('tbl_brand','tbl_brand.brand_id','=','tbl_product.brand_id')->where('tbl_product.product_slug',$product_slug)->get();
+        $details_product = DB::table('tbl_product')->join('tbl_category_product','tbl_category_product.category_id','=','tbl_product.category_id')->join('tbl_brand','tbl_brand.brand_id','=','tbl_product.brand_id')->where('tbl_product.product_id',$product_id)->get();
         foreach($details_product as $key => $value){
         $category_id = $value->category_id;
+        $product_slug = $value->product_slug;
         //seo
         $meta_desc = $value->product_desc;
         $meta_keywords = $value->product_slug;

@@ -130,8 +130,8 @@ class CheckoutController extends Controller
             public function manage_order(){
                 $this->AuthLogin();
                 $all_order = DB::table('tbl_order')->join('tbl_customers','tbl_order.customer_id','=','tbl_customers.customer_id')->select('tbl_order.*','tbl_customers.customer_name')->orderby('tbl_order.order_id','desc')->get();
-                $manager_order = view('admin.manage_order')->with('all_order',$all_order);
-                return view('admin_layout.admin_layout')->with('admin.manage_order', $manager_order);
+                $manager_order = view('admin.order.manage_order')->with('all_order',$all_order);
+                return view('admin_layout.admin_layout')->with('admin.order.manage_order', $manager_order);
                 }
             public function AuthLogin(){
                 $admin_id = Session::get('admin_id');
@@ -150,7 +150,7 @@ class CheckoutController extends Controller
                 }
                 $customer = DB::table('tbl_customers')->where('customer_id',$customer_id)->first();
                 $shipping = DB::table('tbl_shipping')->where('shipping_id',$shipping_id)->first(); 
-                return view('admin.view_order')->with(compact('order_details','customer','shipping','order'));
+                return view('admin.order.view_order')->with(compact('order_details','customer','shipping','order'));
                 }
             public function user_setting(Request $request){
                 $customer_id = Session::get('customer_id');
