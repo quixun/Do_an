@@ -137,7 +137,7 @@
             </div>
         </div>
         <div class="col-md-6">
-            <form role="form" action="{{ URL::to('/update-order/' . $details->order_id) }}" method="post"
+            <form role="form" action="{{ URL::to('/admin/order/update-order/' . $details->order_id) }}" method="post"
                 enctype="multipart/form-data">
                 <div class="form-group col-sm-6">
                     {{ csrf_field() }}
@@ -163,7 +163,7 @@
                                 <option id="{{ $or->order_id }}" value="1">Chưa xử lý</option>
                                 <option id="{{ $or->order_id }}" value="2">Đã xử lý-Đã giao
                                     hàng</option>
-                                <option id="{{ $or->order_id }}" selected value="3">Hủy đơn hàng tạm giữ</option>
+                                <option id="{{ $or->order_id }}" selected value="3">Hủy đơn hàng tạm giữ</option>   
                             @endif
                         </select>
                     @endforeach
@@ -174,6 +174,6 @@
                 </div>
             </form>
         </div>
-        <button class="btn btn-dark form-control" target="_blank" href="{{ url('/print-order/' . $details->order_id) }}">in đơn hàng</button>
+        <button class="btn btn-dark form-control" target="_blank" href="{{ url('/admin/print-order/' . $details->order_id) }}">in đơn hàng</button>
     </div>
 @endsection

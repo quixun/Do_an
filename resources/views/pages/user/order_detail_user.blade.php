@@ -1,4 +1,4 @@
-﻿@extends('layout')
+﻿@extends('layout.layout')
 @section('content')
     <div class="table-agile-info">
         <div class="panel panel-default">
@@ -153,7 +153,7 @@
         </div>
         </form>
     </div>
-    <a target="_blank" href="{{ url('/print-order/' . $details->order_id) }}">in đơn
+    <a target="_blank" href="{{ url('/admin/print-order/' . $details->order_id) }}">in đơn
         hàng</a>
     </div>
 @endsection

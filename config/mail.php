@@ -36,12 +36,13 @@ return [
     'mailers' => [
         'smtp' => [
             'transport' => 'smtp',
-            'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+            'host' => env('MAIL_HOST', 'smtp.mail.org'),
             'port' => env('MAIL_PORT', 587),
             'encryption' => env('MAIL_ENCRYPTION', 'tls'),
             'username' => env('MAIL_USERNAME'),
             'password' => env('MAIL_PASSWORD'),
             'timeout' => null,
+            'auth_mode' => null,
             'local_domain' => env('MAIL_EHLO_DOMAIN'),
         ],
 
@@ -59,7 +60,7 @@ return [
 
         'sendmail' => [
             'transport' => 'sendmail',
-            'path' => env('MAIL_SENDMAIL_PATH', '/usr/sbin/sendmail -bs -i'),
+            'path' => env('MAIL_SENDMAIL_PATH', '/usr/sbin/sendmail -bs'),
         ],
 
         'log' => [
@@ -78,6 +79,18 @@ return [
                 'log',
             ],
         ],
+        
+// 'stream' => [
+// 'ssl' => [
+// 'allow_self_signed' => true,
+// 'verify_peer' => false,
+// 'verify_peer_name' => false,Giảng viên: Ngô Lê Quân 8
+// ],
+// ],
+        'from' => [
+            'address' => env('MAIL_FROM_ADDRESS', 'xuanpq.21it@vku.udn.vn'),
+            'name' => env('MAIL_FROM_NAME', 'QuiXun'),
+        ],
     ],
 
     /*
@@ -90,11 +103,6 @@ return [
     | used globally for all e-mails that are sent by your application.
     |
     */
-
-    'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'hello@example.com'),
-        'name' => env('MAIL_FROM_NAME', 'Example'),
-    ],
 
     /*
     |--------------------------------------------------------------------------

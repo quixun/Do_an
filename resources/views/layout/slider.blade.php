@@ -13,45 +13,42 @@
                     <div class="carousel-inner">
                         <div class="item active">
                             <div class="col-sm-6">
-                                <h1><span>E</span>-SHOPPER</h1>
-                                <h2>Free E-Commerce Template</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore magna aliqua. </p>
+                                <h1><span>11</span>-SEPTEMBER</h1>
+                                <h2>DEMETER - ANGEL</h2>
+                                <p>“Thời trang chính là vỏ bọc sắt để đấu tranh với thực tại trong cuộc sống hàng ngày”.</p>
                                 <button type="button" class="btn btn-default get">Get it now</button>
                             </div>
                             <div class="col-sm-6">
-                                <img src="{{ 'frontend/images/girl1.jpg' }}" class="girl img-responsive"
+                                <img src="{{ '../frontend/images/slide1.png' }}" class="girl img-responsive"
                                     alt="" />
-                                <img src="{{ 'frontend/images/pricing.png' }}" class="pricing" alt="" />
+                                <img src="{{ '../frontend/images/pricing.png' }}" class="pricing" alt="" />
                             </div>
                         </div>
                         <div class="item">
                             <div class="col-sm-6">
-                                <h1><span>E</span>-SHOPPER</h1>
-                                <h2>100% Responsive Design</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore magna aliqua. </p>
+                                <h1><span>11</span>-SEPTEMBER</h1>
+                                <h2>DEMETER - ANGEL</h2>
+                                <p>“Thời trang có thể phai tàn nhưng phong cách sẽ tồn tại mãi mãi”.</p>
                                 <button type="button" class="btn btn-default get">Get it now</button>
                             </div>
                             <div class="col-sm-6">
-                                <img src="{{ 'frontend/images/girl2.jpg' }}" class="girl img-responsive"
+                                <img src="{{ '../frontend/images/slide2.png' }}" class="girl img-responsive"
                                     alt="" />
-                                <img src="{{ 'frontend/images/pricing.png' }}" class="pricing" alt="" />
+                                <img src="{{ '../frontend/images/pricing.png' }}" class="pricing" alt="" />
                             </div>
                         </div>
 
                         <div class="item">
                             <div class="col-sm-6">
-                                <h1><span>E</span>-SHOPPER</h1>
-                                <h2>Free Ecommerce Template</h2>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore magna aliqua. </p>
+                                <h1><span>11</span>-SEPTEMBER</h1>
+                                <h2>DEMETER - ANGEL</h2>
+                                <p>“Bất cứ ai cũng có thể diện những bộ cánh đẹp nhất và trở nên thật lộng lẫy, nhưng những thứ mọi người mặc trong ngày nghỉ mới thực sự hấp dẫn”.</p>
                                 <button type="button" class="btn btn-default get">Get it now</button>
                             </div>
                             <div class="col-sm-6">
-                                <img src="{{ 'frontend/images/girl3.jpg' }}" class="girl img-responsive"
+                                <img src="{{ '../frontend/images/slide3.png' }}" class="girl img-responsive"
                                     alt="" />
-                                <img src="{{ 'frontend/images/pricing.png' }}" class="pricing" alt="" />
+                                <img src="{{ '../frontend/images/pricing.png' }}" class="pricing" alt="" />
                             </div>
                         </div>
 

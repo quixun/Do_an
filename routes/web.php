@@ -63,8 +63,8 @@ Route::get('/admin/active-product/{product_id}', [ProductController::class, 'act
 Route::get('/admin/edit-product/{product_id}', [ProductController::class, 'edit_product']);
 Route::post('admin/update-product/{product_id}', [ProductController::class, 'update_product']);
 Route::get('/admin/delete-product/{product_id}', [ProductController::class, 'delete_product']);
-Route::get('/admin/chi-tiet-san-pham/{product_slug}',[ProductController::class, 'details_product']);
-Route::get('/admin/chi-tiet-san-pham/{product_id}',[ProductController::class, 'details_product']);
+Route::get('/chi-tiet-san-pham/{product_slug}',[ProductController::class, 'details_product']);
+Route::get('/chi-tiet-san-pham/{product_id}',[ProductController::class, 'details_product']);
 
 
 
@@ -77,6 +77,7 @@ Route::post('/update-cart-quantity',[CartController::class, 'update_cart_quantit
 
 
 Route::get('/login-checkout',[CheckoutController::class, 'login_checkout']);
+Route::post('/admin/order/update-order/{orderId}',[CheckoutController::class, 'update_order']);
 Route::post('/add-customer',[CheckoutController::class, 'add_customer']);
 Route::get('/checkout',[CheckoutController::class, 'checkout']);
 Route::post('/login-customer',[CheckoutController::class, 'login_customer']);
@@ -88,3 +89,4 @@ Route::get('/manage-order',[CheckoutController::class, 'manage_order']);
 Route::get('/view-order/{orderId}',[CheckoutController::class, 'view_order']);
 Route::get('/taikhoan',[CheckoutController::class, 'user_setting']);
 Route::get('/view-order-user/{orderId}',[CheckoutController::class, 'view_order_user']);
+Route::get('/delete-order/{orderId}',[CheckoutController::class, 'delete_order']);

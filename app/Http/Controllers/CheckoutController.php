@@ -105,6 +105,7 @@ class CheckoutController extends Controller
                 $order_data['order_total'] = Cart::total();
                 $order_data['order_status'] = 1;
                 $order_id = DB::table('tbl_order')->insertGetId($order_data);
+                $body_massage = 'mã đơn hàng '.$order_id.'tổng tiền: '.$order_data['order_total'];
                 //insert order_details
                 $content = Cart::content();
                 foreach($content as $v_content){
@@ -119,6 +120,14 @@ class CheckoutController extends Controller
                 echo 'Thanh toán thẻ ATM';
                 }elseif($data['payment_method']==2){
                 Cart::destroy();
+                // gui email o
+                $to_name = Session::get('customer_name');
+                $to_email = Session::get('shipping_email');//send to this email
+                $data = array("name"=>$body_massage,"body"=>'Mail gửi về vấn về hàng hóa'); //body of mail.blade.php
+                Mail::send('test_mail',$data,function($message) use ($to_name,$to_email){
+                $message->to($to_email)->subject('kiểm tra thư gửi mail google');//send this mail with subject
+                $message->from($to_email,$to_name);//send from this mail`
+                });
                 $cate_product = DB::table('tbl_category_product')->where('category_status','1')->orderby('category_id','desc')->get();
                 $brand_product = DB::table('tbl_brand')->where('brand_status','1')->orderby('brand_id','desc')->get();
                 return view('pages.checkout.handcash')->with('category',$cate_product)->with('brand',$brand_product)->with('meta_desc',$meta_desc)->with('meta_keywords',$meta_keywords)->with('meta_title',$meta_title)->with('url_canonical',$url_canonical);
@@ -152,17 +161,32 @@ class CheckoutController extends Controller
                 $shipping = DB::table('tbl_shipping')->where('shipping_id',$shipping_id)->first(); 
                 return view('admin.order.view_order')->with(compact('order_details','customer','shipping','order'));
                 }
-            public function user_setting(Request $request){
-                $customer_id = Session::get('customer_id');
-                $meta_desc = "Đăng nhập thanh toán";
-                $meta_keywords = "Đăng nhập thanh toán";
-                $meta_title = "Đăng nhập thanh toán";
-                $url_canonical = $request->url();
-                //--seo
-                $cate_product = DB::table('tbl_category_product')->where('category_status','1')->orderby('category_id','desc')->get();
-                $brand_product = DB::table('tbl_brand')->where('brand_status','1')->orderby('brand_id','desc')->get();
-                $manager_order = DB::table('tbl_order')->join('tbl_customers','tbl_order.customer_id','=','tbl_customers.customer_id')->select('tbl_order.*','tbl_customers.customer_name')->where('tbl_order.customer_id',$customer_id)->orderby('tbl_order.order_id','desc')->get();
-                return view('pages.user.user_setting')->with('all_order', $manager_order)->with('category',$cate_product)->with('brand',$brand_product)->with('meta_desc',$meta_desc)->with('meta_keywords',$meta_keywords)->with('meta_title',$meta_title)->with('url_canonical',$url_canonical);
+            public function update_order(Request $request,$order_id){
+                $this->AuthLogin();
+                $select = $request->select_status;
+                DB::table('tbl_order')->where('order_id', $order_id)->update(['order_status' => $select]);
+                $all_order = DB::table('tbl_order')->join('tbl_customers','tbl_order.customer_id','=','tbl_customers.customer_id')->select('tbl_order.*','tbl_customers.customer_name')->orderby('tbl_order.order_id','desc')->get();
+                $manager_order = view('admin.order.manage_order')->with('all_order',$all_order);
+                return view('admin_layout.admin_layout')->with('admin.order.manage_order', $manager_order);
+                }
+                public function user_setting(Request $request){
+                    $customer_id = Session::get('customer_id');
+                    $meta_desc = "Đăng nhập thanh toán";
+                    $meta_keywords = "Đăng nhập thanh toán";
+                    $meta_title = "Đăng nhập thanh toán";
+                    $url_canonical = $request->url();
+                    //--seo
+                    $cate_product = DB::table('tbl_category_product')->where('category_status','1')->orderby('category_id','desc')->get();
+                    $brand_product = DB::table('tbl_brand')->where('brand_status','1')->orderby('brand_id','desc')->get();
+                    $manager_order = DB::table('tbl_order')->join('tbl_customers','tbl_order.customer_id','=','tbl_customers.customer_id')->select('tbl_order.*','tbl_customers.customer_name')->where('tbl_order.customer_id',$customer_id)->orderby('tbl_order.order_id','desc')->get();
+                    return view('pages.user.user_setting')->with('all_order', $manager_order)->with('category',$cate_product)->with('brand',$brand_product)->with('meta_desc',$meta_desc)->with('meta_keywords',$meta_keywords)->with('meta_title',$meta_title)->with('url_canonical',$url_canonical);
+                    }
+                public function delete_order($order_id)
+                {
+                    $this->AuthLogin();
+                    DB::table('tbl_order')->where('order_id', $order_id)->delete();
+                    Session::put('message', 'Xóa đơn hàng thành công');
+                    return view('admin.order.manage_order');
                 }
             public function view_order_user(Request $request,$order_id){
                 $customer_id = Session::get('customer_id');

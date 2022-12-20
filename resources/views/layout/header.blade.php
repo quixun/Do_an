@@ -18,14 +18,9 @@
     <script src="js/html5shiv.js"></script>
     <script src="js/respond.min.js"></script>
     <![endif]-->
-    <link rel="shortcut icon" href="{{ 'frontend/images/favicon.ico' }}">
-    <link rel="apple-touch-icon-precomposed" sizes="144x144"
-        href="{{ 'frontend/images/apple-touch-icon-144-precomposed.png' }}">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114"
-        href="{{ 'frontend/images/apple-touch-icon-114-precomposed.png' }}">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72"
-        href="{{ 'frontend/images/apple-touch-icon-72-precomposed.png' }}">
-    <link rel="apple-touch-icon-precomposed" href="{{ 'frontend/images/apple-touch-icon-57-precomposed.png' }}">
+    <link rel="icon" type="image/png" sizes="16x16"  href="{{ asset('frontend/images/favicon-16x16.png') }}">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
 </head>
 <!--/head-->
 
@@ -39,19 +34,19 @@
                     <div class="col-sm-6">
                         <div class="contactinfo">
                             <ul class="nav nav-pills">
-                                <li><a href="#"><i class="fa fa-phone"></i> +2 95 01 88 821</a></li>
-                                <li><a href="#"><i class="fa fa-envelope"></i> info@domain.com</a></li>
+                                <li><a href="#"><i class="fa fa-phone"></i> 0703092742</a></li>
+                                <li><a href="#"><i class="fa fa-envelope"></i> xuanphan742@gmail.com</a></li>
                             </ul>
                         </div>
                     </div>
                     <div class="col-sm-6">
                         <div class="social-icons pull-right">
                             <ul class="nav navbar-nav">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                <li><a href="https://www.facebook.com/phanquixuan.8203"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="https://twitter.com/WeAreMessi"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="https://www.instagram.com/quixun.8203/"><i class="fa fa-linkedin"></i></a></li>
+                                <li><a href="https://dribbble.com/Xuan11"><i class="fa fa-dribbble"></i></a></li>
+                                <li><a href="https://www.google.com.vn/?hl=vi"><i class="fa fa-google-plus"></i></a></li>
                             </ul>
                         </div>
                     </div>
@@ -67,7 +62,7 @@
                     <div class="col-sm-4">
                         <div class="logo pull-left">
                             <a href="{{ URL::to('/trang-chu') }}" class="active"><img
-                                    src="{{ 'frontend/images/logo.png' }}" alt="" /></a>
+                                    src="{{ '../frontend/images/logo_6.png' }}" alt="" /></a>
                         </div>
                         <div class="btn-group pull-right">
                             <div class="btn-group">
@@ -98,7 +93,7 @@
                     <div class="col-sm-8">
                         <div class="shop-menu pull-right">
                             <ul class="nav navbar-nav">
-                                <li class="nav-item"><a href="#"><i class="fa fa-star"></i> Yêu thích</a></li>
+                                <li class="nav-item"><a href=""><i class="fa fa-star"></i> Yêu thích</a></li>
                                 <?php
                                     $customer_id = Session::get('customer_id');
                                     $shipping_id = Session::get('shipping_id');
@@ -126,14 +121,17 @@
                                     $customer_id = Session::get('customer_id');
                                     if($customer_id!=NULL){
                                 ?>
+                                <li class="nav-item"><a href="{{ URL::to('/taikhoan') }}"><i
+                                    class="fa fa-user"></i>{{ Session::get('customer_name') }}
+                            </a></li>
                                 <li class="nav-item"><a href="{{ URL::to('/logout-checkout') }}"><i
                                             class="fa fa-lock"></i> Đăng xuất</a></li>
                                 <?php
                                     }else{
                                 ?>
-                                <li class="nav-item"><a href="{{ URL::to('/taikhoan') }}"><i
-                                            class="fa falock"></i>Thông tin của {{ Session::get('customer_name') }}
-                                    </a></li>
+                                {{-- <li class="nav-item"><a href="{{ URL::to('/taikhoan') }}"><i
+                                            class="fa falock"></i>Thông tin {{ Session::get('customer_name') }}
+                                    </a></li> --}}
                                 <li class="nav-item"><a href="{{ URL::to('/login-checkout') }}"><i
                                             class="fa fa-lock"></i> Đăng nhập</a></li>
                                 <?php
@@ -163,24 +161,21 @@
                         </div>
                         <div class="mainmenu pull-left">
                             <ul class="nav navbar-nav collapse navbar-collapse">
-                                <li><a href="{{ URL::to('/trang-chu') }}" class="active">Home</a></li>
-                                <li class="dropdown"><a href="#">Shop<i class="fa fa-angle-down"></i></a>
+                                <li><a href="{{ URL::to('/trang-chu') }}" class="active">Trang Chủ</a></li>
+                                <li class="dropdown"><a href="#">Cửa Hàng<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
-                                        <li><a href="shop.html">Products</a></li>
-                                        <li><a href="product-details.html">Product Details</a></li>
-                                        <li><a href="checkout.html">Checkout</a></li>
-                                        <li><a href="cart.html">Cart</a></li>
-                                        <li><a href="login.html">Login</a></li>
+                                        <li><a href="{{ URL::to('/show-cart') }}">Cart</a></li>
+                                        <li><a href="{{ URL::to('/admin') }}">Login</a></li>
                                     </ul>
                                 </li>
                                 <li class="dropdown"><a href="#">Blog<i class="fa fa-angle-down"></i></a>
                                     <ul role="menu" class="sub-menu">
-                                        <li><a href="blog.html">Blog List</a></li>
-                                        <li><a href="blog-single.html">Blog Single</a></li>
+                                        <li><a href="#">Blog List</a></li>
+                                        <li><a href="#">Blog Single</a></li>
                                     </ul>
                                 </li>
-                                <li><a href="404.html">404</a></li>
-                                <li><a href="contact-us.html">Contact</a></li>
+                                <li><a href="#">404</a></li>
+                                <li><a href="https://www.facebook.com/himiieee">Contact</a></li>
                             </ul>
                         </div>
                     </div>

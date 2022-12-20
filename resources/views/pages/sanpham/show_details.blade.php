@@ -31,12 +31,12 @@
                     <!--/product-information-->
                     <img src="images/productdetails/new.jpg" class="newarrival" alt="" />
                     <h2>{{ $value->product_name }}</h2>
-                    <p>Mã ID: {{ $value->product_id }}</p>
+                    <p>Mã Sản Phẩm: {{ $value->product_id }}</p>
                     <img src="{{ asset('frontend/images/rating.png') }}" alt="" />
                     <form action="{{ URL::to('/save-cart') }}" method="POST">
                         {{ csrf_field() }}
                         <span>
-                            <span>{{ number_format($value->product_price) . 'VNĐ' }}</span>
+                            <span>{{ number_format(floatval($value->product_price)) . 'VNĐ' }}</span>
                             <label>Số lượng:</label>
                             <input name="qty" type="number" min="1" value="1" />
                             <input name="productid_hidden" type="hidden" value="{{ $value->product_id }}" />
@@ -46,7 +46,7 @@
                             </button>
                         </span>
                     </form>
-                    <p><b>Tình trạng:</b> Cònhàng</p>
+                    <p><b>Tình trạng:</b> Còn hàng</p>
                     <p><b>Điều kiện:</b> Mới 100%</p>
                     <p><b>Thương hiệu:</b>
                         {{ $value->brand_name }}</p>
